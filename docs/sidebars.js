@@ -62,7 +62,10 @@ const sidebars = {
     'reference/adr-003',
     'reference/adr-004',
     'reference/adr-005',
-    'reference/adr-006'
+    'reference/adr-006',
+    'reference/adr-007',
+    'reference/adr-008',
+    'reference/adr-009'
   ],
 };
 

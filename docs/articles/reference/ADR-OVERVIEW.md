@@ -4,8 +4,8 @@ id: adr-overview
 displayed_sidebar: resourcesSidebar
 ---
 
-# Prysm ADR Guide
-This guide serves as a walkthrough for ADRs 001-006. It provides a high level overview of each ADR with a special emphasis on interactions with the blockchain.
+# ADR Guide
+This guide serves as a walkthrough for ADRs 001-009. It provides a high level overview of each ADR with a special emphasis on interactions with the blockchain.
 
 ## Introduction
 An Architecture Decision Record (ADR) is a document which describes in detail a significant addition to the Sonr platform. This includes a high level description all the way down to specific methods to be added. This guide will link each ADR for reference, but the blockchain interactions for each ADR will be synthesized and documented here.
@@ -45,3 +45,18 @@ Functions on Sonr allow developers to run serverless code, similar to AWS Lambda
 - total_cost = static_cost + runtime_fees (static_cost)
 - total_cost=variable_cost+runtime_fees+ gas_fees (variable cost)
 - total_cost=runtime_fees (runtime_cost) but execution is facilitated by an off-chain service (free). Developers will be the only users performing these transactions.
+
+## ADR-007: Authorization and Permissions
+[LINK TO ADR-007](https://docs.sonr.io/articles/reference/adr-007)
+
+This ADR enables the Sonr network to use granular permissions on object schemas, buckets, and channels. The purpose of this is ADR is to expand the usablility of the Sonr network far beyond its initial capiblities, and into the realm of 
+
+## ADR-008: Tokenomics
+[LINK TO ADR-008](https://docs.sonr.io/articles/reference/adr-008)
+
+Tokenomics will enable the Sonr network to function effectively far into the future. This helps make the Sonr network viable for developers for years to come. This ADR defines the costs associated with various actions on the network. 
+
+## ADR-009: Multi-party Computation (MPC)
+[LINK TO ADR-009](https://docs.sonr.io/articles/reference/adr-009)
+
+[Multi-party Computation](https://en.wikipedia.org/wiki/Secure_multi-party_computationp) enables the bulk of the excellent user experience that Sonr provides. It helps the Sonr network authenticate users in a seamless way. 
