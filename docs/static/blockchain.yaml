@@ -31791,9 +31791,7 @@ paths:
                 properties:
                   creator:
                     type: string
-                    title: |-
-                      Represents the types of fields a schema can have
-                      the DID for this schema
+                    title: "Represents the types of fields a schema can have\r\nthe DID for this schema"
                   label:
                     type: string
                     title: an alternative reference point
@@ -56420,9 +56418,7 @@ definitions:
         properties:
           creator:
             type: string
-            title: |-
-              Represents the types of fields a schema can have
-              the DID for this schema
+            title: "Represents the types of fields a schema can have\r\nthe DID for this schema"
           label:
             type: string
             title: an alternative reference point
@@ -56547,9 +56543,7 @@ definitions:
     properties:
       creator:
         type: string
-        title: |-
-          Represents the types of fields a schema can have
-          the DID for this schema
+        title: "Represents the types of fields a schema can have\r\nthe DID for this schema"
       label:
         type: string
         title: an alternative reference point
