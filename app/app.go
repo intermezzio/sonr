@@ -735,11 +735,11 @@ func New(
 	// app.SetAnteHandler(anteHandler)
 	app.SetEndBlocker(app.EndBlocker)
 
-	if loadLatest {
-		if err := app.LoadLatestVersion(); err != nil {
-			tmos.Exit(err.Error())
-		}
-	}
+	//if loadLatest {
+	//	if err := app.LoadLatestVersion(); err != nil {
+	//		tmos.Exit(err.Error())
+	//	}
+	//}
 
 	app.ScopedIBCKeeper = scopedIBCKeeper
 	app.ScopedTransferKeeper = scopedTransferKeeper
