@@ -11,5 +11,5 @@ let NFT721 = new NftTestEngine(
 
 await NFT721.setup()
 console.log(NFT721.contract_address)
-console.log("Re-resending Same TX to crash and regenerate the error ( tx already exists in cache )")
-await NFT721.setup()
+// console.log("Re-resending Same TX to crash and regenerate the error ( tx already exists in cache )")
+// await NFT721.setup()
