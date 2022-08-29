@@ -18,7 +18,7 @@ const endpoint = "http://localhost:26657";
 
 
 // Copy Memonic from the Terminal and UPDATE IT HERE
-export const mnemonic = "winter twelve novel ride lawsuit hello dose pyramid category hawk enroll tool thing trade transfer between mansion tilt cargo all moral found differ sample"
+export const mnemonic = "fold merit circle virus tonight neglect grit wash exotic shift improve alone flee orchard fantasy honey shell object outer mystery course winner force banana"
 export class Wallet {
     wallet_address;
     publicKey;
@@ -41,6 +41,7 @@ export class Wallet {
 
     async sign_and_broadcast(messages) {
         const memo = "sign_and_broadcast_memo";
+        console.log(messages)
         return this.client.signAndBroadcast(this.wallet_address, messages, "auto", memo)
     }
 

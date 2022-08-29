@@ -18,6 +18,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/types/module"
 	"github.com/cosmos/cosmos-sdk/version"
 	"github.com/cosmos/cosmos-sdk/x/auth"
+	"github.com/cosmos/cosmos-sdk/x/auth/ante"
 	"github.com/prometheus/client_golang/prometheus"
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 	"io"
@@ -719,20 +720,24 @@ func New(
 	app.SetInitChainer(app.InitChainer)
 	app.SetBeginBlocker(app.BeginBlocker)
 
-	// TODO: WARNING THIS IS THE TX VALIDATOR FOR THE BLOCKCHAIN. UNTIL WE CAN GET THE MPC PUBLIC KEY REGISTERED AS A THIRD PARTY PROTO TYPE, ENABLING THIS WILL CAUSE ALL TXS TO BE REJECTED.
-	// anteHandler, err := ante.NewAnteHandler(
-	// 	ante.HandlerOptions{
-	// 		AccountKeeper:   app.AccountKeeper,
-	// 		BankKeeper:      app.BankKeeper,
-	// 		SignModeHandler: encodingConfig.TxConfig.SignModeHandler(),
-	// 		FeegrantKeeper:  app.FeeGrantKeeper,
-	// 		SigGasConsumer:  ante.DefaultSigVerificationGasConsumer,
-	// 	},
-	// )
-	// if err != nil {
-	// 	panic(err)
-	// }
-	// app.SetAnteHandler(anteHandler)
+	anteHandler, err := NewAnteHandler(
+		HandlerOptions{
+			HandlerOptions: ante.HandlerOptions{
+				AccountKeeper:   app.AccountKeeper,
+				BankKeeper:      app.BankKeeper,
+				FeegrantKeeper:  app.FeeGrantKeeper,
+				SignModeHandler: encodingConfig.TxConfig.SignModeHandler(),
+				SigGasConsumer:  ante.DefaultSigVerificationGasConsumer,
+			},
+			IBCKeeper:         app.IBCKeeper,
+			WasmConfig:        &wasmConfig,
+			TXCounterStoreKey: keys[wasm.StoreKey],
+		},
+	)
+	if err != nil {
+		panic(err)
+	}
+	app.SetAnteHandler(anteHandler)
 	app.SetEndBlocker(app.EndBlocker)
 
 	//if loadLatest {
